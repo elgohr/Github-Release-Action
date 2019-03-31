@@ -1,5 +1,5 @@
-# Github-Hub-Action
-Interacting with Github in an action
+# Github-Release-Action
+Publish Github releases in an action
 
 ## Usage
 An example workflow
@@ -10,12 +10,12 @@ workflow "Publish Release" {
 }
 
 action "create release" {
-  uses = "elgohr/Github-Hub-Action@1.0"
-  args = "release create $(date +%Y%m%d%H%M%S)"
+  uses = "elgohr/Github-Release-Action@1.0"
+  args = "UpdateDependencies"
   secrets = ["GITHUB_TOKEN"]
 }
 ```
 
 ## Argument
 
-The actions you want to perform on Github
+The message which should appear in the release
