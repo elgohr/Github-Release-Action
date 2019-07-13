@@ -1,4 +1,4 @@
-FROM ubuntu:16.10
+FROM ubuntu:18.04
 LABEL "com.github.actions.name"="Github Release"
 LABEL "com.github.actions.description"="Publish Github releases in an action"
 LABEL "com.github.actions.icon"="git-branch"
