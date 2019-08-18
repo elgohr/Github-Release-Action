@@ -1,17 +1,36 @@
 # Github-Release-Action
-Publish Github releases in an action
+Publish Github releases
 
 ## Usage
-An example workflow
+
+### New workflow
+```yaml
+name: Publish Release
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Create a Release
+      uses: elgohr/Github-Release-Action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        args: MyReleaseMessage
+
 ```
+
+### Old workflow
+```hcl
 workflow "Publish Release" {
   on = "push"
   resolves = ["create release"]
 }
 
 action "create release" {
-  uses = "elgohr/Github-Release-Action@1.0"
-  args = "UpdateDependencies"
+  uses = "elgohr/Github-Release-Action@master"
+  args = "MyReleaseMessage"
   secrets = ["GITHUB_TOKEN"]
 }
 ```
