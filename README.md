@@ -23,20 +23,6 @@ jobs:
 
 ```
 
-### Old workflow
-```hcl
-workflow "Publish Release" {
-  on = "push"
-  resolves = ["create release"]
-}
-
-action "create release" {
-  uses = "elgohr/Github-Release-Action@master"
-  args = "MyReleaseMessage"
-  secrets = ["GITHUB_TOKEN"]
-}
-```
-
 ## Argument
 
 The message which should appear in the release

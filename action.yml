@@ -1,0 +1,16 @@
+name: 'Github Release'
+author: 'Lars Gohr'
+branding:
+  icon: 'git-branch'
+  color: 'gray-dark'
+description: 'Publish Github releases from an action'
+env:
+  GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+inputs:
+  release:
+    description: 'The name of the release to publish'
+    required: true
+args: ['${{ inputs.release }}']
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
