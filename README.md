@@ -1,5 +1,6 @@
 # Github-Release-Action
 [![Actions Status](https://github.com/elgohr/Github-Release-Action/workflows/Test/badge.svg)](https://github.com/elgohr/Github-Release-Action/actions)
+[![Actions Status](https://github.com/elgohr/Github-Release-Action/workflows/Publish%20Release/badge.svg)](https://github.com/elgohr/Github-Release-Action/actions)
 
 Publish Github releases
 
