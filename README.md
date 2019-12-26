@@ -5,7 +5,6 @@ Publish Github releases
 
 ## Usage
 
-### New workflow
 ```yaml
 name: Publish Release
 on: [push]
@@ -17,11 +16,12 @@ jobs:
     - name: Create a Release
       uses: elgohr/Github-Release-Action@master
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
         args: MyReleaseMessage
 
 ```
+Please note, that you can't use `${{ secrets.GITHUB_TOKEN }}` as it isn't allowed to publish releases.
 
 ## Argument
 
