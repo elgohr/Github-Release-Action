@@ -5,12 +5,12 @@ branding:
   color: 'gray-dark'
 description: 'Publish Github releases from an action'
 env:
-  GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+  GITHUB_TOKEN: 'The Github Token'
 inputs:
   release:
     description: 'The name of the release to publish'
     required: true
-args: ['${{ inputs.release }}']
+args: ['The release name']
 runs:
   using: 'docker'
   image: 'Dockerfile'
