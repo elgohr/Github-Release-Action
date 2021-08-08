@@ -10,7 +10,7 @@ jobs:
       - uses: octokit/graphql-action@v2.x
         id: get_pull_request_id
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.AUTO_UPDATE }}
         with:
           query: |
             query GetPullRequest($owner:String!,$repository:String!,$pull_request_number:Int!) {
@@ -26,7 +26,7 @@ jobs:
       - uses: octokit/graphql-action@v2.x
         id: automerge_pr
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.AUTO_UPDATE }}
         with:
           query: |
             mutation EnableAutomerge($pull_request_id:String!) {
