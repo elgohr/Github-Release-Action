@@ -1,4 +1,4 @@
-FROM debian:11.0
+FROM debian:11.1
 LABEL "repository"="https://github.com/elgohr/Github-Release-Action"
 LABEL "maintainer"="Lars Gohr"
 
