@@ -1,7 +1,6 @@
 # Github-Release-Action
 
-[![Actions Status](https://github.com/elgohr/Github-Release-Action/workflows/Test/badge.svg)](https://github.com/elgohr/Github-Release-Action/actions)
-[![Actions Status](https://github.com/elgohr/Github-Release-Action/workflows/Publish%20Release/badge.svg)](https://github.com/elgohr/Github-Release-Action/actions)
+[![Actions Status](https://github.com/elgohr/Github-Release-Action/workflows/Release/badge.svg)](https://github.com/elgohr/Github-Release-Action/actions)
 
 Publish Github releases
 
@@ -9,23 +8,21 @@ Publish Github releases
 
 ```yaml
 name: Publish Release
-
 on:
   push:
     tags:
       - 'v*'
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v3
     - name: Create a Release
-      uses: elgohr/Github-Release-Action@master
+      uses: elgohr/Github-Release-Action@v2
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
-        args: MyReleaseMessage
+        title: MyReleaseMessage
 ```
 
 Please note, that you can't use `${{ secrets.GITHUB_TOKEN }}` as it isn't allowed to publish releases.

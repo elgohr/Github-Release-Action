@@ -1,0 +1,36 @@
+
+name: Release
+on: 
+  push:
+    branches: [ main ]
+    tags-ignore:
+      - 'v*'
+
+jobs:
+  integration-test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v3
+    - name: Create a Release
+      uses: elgohr/Github-Release-Action@main
+      env:
+        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      with:
+        title: ${{ github.sha }}
+
+  release:
+    runs-on: ubuntu-latest
+    needs:
+      - integration-test
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.RELEASE_TOKEN }} # for pushing to protected branch
+      - name: Publish new version
+        run: |
+          git config --global user.email "no_reply@gohr.digital"
+          git config --global user.name "Release Bot"
+          git tag -fa v2 -m "Update v2 tag"
+          git push origin v2 --force
