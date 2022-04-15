@@ -32,5 +32,5 @@ jobs:
         run: |
           git config --global user.email "no_reply@gohr.digital"
           git config --global user.name "Release Bot"
-          git tag -fa v2 -m "Update v2 tag"
-          git push origin v2 --force
+          git tag -fa v4 -m "Update v4 tag"
+          git push origin v4 --force
