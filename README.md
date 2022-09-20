@@ -2,7 +2,7 @@
 
 [![Actions Status](https://github.com/elgohr/Github-Release-Action/workflows/Release/badge.svg)](https://github.com/elgohr/Github-Release-Action/actions)
 
-Publish Github releases
+Creates a plain Github release, without attaching assets or source code.
 
 ## Usage
 
@@ -27,10 +27,6 @@ jobs:
 
 ## Notes
 
-You can't use `${{ secrets.GITHUB_TOKEN }}` as it isn't allowed to publish releases.
+`${{ secrets.GITHUB_TOKEN }}` can't be used for publishing, as it isn't allowed to publish releases.
 
 The ``title`` field is a message which should appear in the release. May not contain spaces. 
-
-The reasult of running this action will be a new GitHub release of your software, available for download in the tab on the right.
-
-This release will contain the source code for the given tag, and also may contain binaries and supporting metadata, if those are installed in directory so-and-so. 
