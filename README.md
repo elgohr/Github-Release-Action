@@ -25,8 +25,12 @@ jobs:
         title: MyReleaseMessage
 ```
 
-Please note, that you can't use `${{ secrets.GITHUB_TOKEN }}` as it isn't allowed to publish releases.
+## Notes
 
-## Argument
+You can't use `${{ secrets.GITHUB_TOKEN }}` as it isn't allowed to publish releases.
 
-The message which should appear in the release. May not contain spaces.
+The ``title`` field is a message which should appear in the release. May not contain spaces. 
+
+The reasult of running this action will be a new GitHub release of your software, available for download in the tab on the right.
+
+This release will contain the source code for the given tag, and also may contain binaries and supporting metadata, if those are installed in directory so-and-so. 
