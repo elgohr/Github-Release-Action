@@ -2,7 +2,7 @@
 
 [![Actions Status](https://github.com/elgohr/Github-Release-Action/workflows/Release/badge.svg)](https://github.com/elgohr/Github-Release-Action/actions)
 
-Publish Github releases
+Creates a plain Github release, without attaching assets or source code.
 
 ## Usage
 
@@ -25,8 +25,8 @@ jobs:
         title: MyReleaseMessage
 ```
 
-Please note, that you can't use `${{ secrets.GITHUB_TOKEN }}` as it isn't allowed to publish releases.
+## Notes
 
-## Argument
+`${{ secrets.GITHUB_TOKEN }}` can't be used for publishing, as it isn't allowed to publish releases.
 
-The message which should appear in the release. May not contain spaces.
+The ``title`` field is a message which should appear in the release. May not contain spaces. 
