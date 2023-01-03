@@ -1,0 +1,20 @@
+name: Publish Release
+on: 
+  push:
+    branches: 
+      - master
+    tags:
+      - v*
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+      if: github.actor != 'dependabot[bot]'
+    - name: Create a Release
+      if: github.actor != 'dependabot[bot]'
+      uses: elgohr/Github-Release-Action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      with:
+        args: ${{ github.sha }}
