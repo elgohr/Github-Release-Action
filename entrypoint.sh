@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# Remove spaces
 INPUT_TITLE="$(echo "$INPUT_TITLE" | tr -d ' ')"
 
 if [ -z "${INPUT_TAG}" ]; then
@@ -8,9 +7,7 @@ if [ -z "${INPUT_TAG}" ]; then
 fi
 
 if [ -z "${INPUT_BODY}" ]; then
-  INPUT_MSG="${INPUT_TITLE}"
+  hub release create -m "${INPUT_TITLE}" "${INPUT_TAG}" 
 else
-  INPUT_MSG="${INPUT_TITLE} ${INPUT_BODY}"
+  hub release create -m "${INPUT_TITLE}" -m "${INPUT_BODY}" "${INPUT_TAG}" 
 fi
-
-hub release create -m "${INPUT_MSG}" "${INPUT_TAG}" 
