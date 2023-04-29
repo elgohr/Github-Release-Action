@@ -30,3 +30,5 @@ jobs:
 `${{ secrets.GITHUB_TOKEN }}` can't be used for publishing, as it isn't allowed to publish releases.
 
 The ``title`` field is a message which should appear in the release. May not contain spaces. 
+
+The ``tag`` field is the release tag. If not specified it will default to the current date.
