@@ -10,8 +10,11 @@ inputs:
     description: "The tag of the release to publish"
     required: false
   title:
-    description: "The name of the release to publish"
+    description: "The title of the release to publish"
     required: true
+  body:
+    description: "The body of the release to publish"
+    required: false
 
 runs:
   using: 'composite'
@@ -21,3 +24,4 @@ runs:
       env:
         INPUT_TAG: ${{ inputs.tag }}
         INPUT_TITLE: ${{ inputs.title }}
+        INPUT_BODY: ${{ inputs.body }}
