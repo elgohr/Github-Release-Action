@@ -6,6 +6,9 @@ branding:
 description: "Publish Github releases from an action"
 
 inputs:
+  tag:
+    description: "The tag of the release to publish"
+    required: false
   title:
     description: "The name of the release to publish"
     required: true
@@ -16,4 +19,5 @@ runs:
     - run: $GITHUB_ACTION_PATH/entrypoint.sh
       shell: bash
       env:
+        INPUT_TAG: ${{ inputs.tag }}
         INPUT_TITLE: ${{ inputs.title }}
