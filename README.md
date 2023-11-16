@@ -25,8 +25,16 @@ jobs:
         title: MyReleaseMessage
 ```
 
+## Mandatory Arguments
+
+### title
+`title` is a message which should appear in the release. May not contain spaces.
+
+## Optional Arguments
+
+### workdir
+`workdir` can be used to specify a directory that contains the repository to be published. 
+
 ## Notes
 
 `${{ secrets.GITHUB_TOKEN }}` can't be used for publishing, as it isn't allowed to publish releases.
-
-The ``title`` field is a message which should appear in the release. May not contain spaces. 
