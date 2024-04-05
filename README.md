@@ -20,7 +20,7 @@ jobs:
     - name: Create a Release
       uses: elgohr/Github-Release-Action@v5
       env:
-        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         title: MyReleaseMessage
 ```
@@ -28,7 +28,7 @@ jobs:
 ## Mandatory Arguments
 
 ### title
-`title` is a message which should appear in the release. May not contain spaces.
+`title` is a message which should appear in the release. May contain spaces.
 
 ## Optional Arguments
 
@@ -37,4 +37,16 @@ jobs:
 
 ## Notes
 
-`${{ secrets.GITHUB_TOKEN }}` can't be used for publishing, as it isn't allowed to publish releases.
+`${{ secrets.GITHUB_TOKEN }}` can be used for publishing, if you configure the correct permissions.
+
+This can be done by giving the Github token _all_ permissions (referred to as "Read and write permission") with the setting below available in Settings > Actions > General  
+![Screenshot of permission setting](permissions.png)
+OR alternatively it can be achieved via adding
+
+```yaml
+permissions:
+  packages: write
+  contents: write
+```
+
+to the concrete job creating the release. For more details see the [documentation on token permissions.](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token)
