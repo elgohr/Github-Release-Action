@@ -35,6 +35,8 @@ jobs:
 ### workdir
 `workdir` can be used to specify a directory that contains the repository to be published. 
 
+### tag
+`tag` can be used to set the tag of the release
 ## Notes
 
 `${{ secrets.GITHUB_TOKEN }}` can be used for publishing, if you configure the correct permissions.
