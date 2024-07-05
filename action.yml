@@ -21,3 +21,4 @@ runs:
       env:
         INPUT_TITLE: ${{ inputs.title }}
         INPUT_WORKDIR: ${{ inputs.workdir }}
+        INPUT_TAGS: ${{ inputs.tags }}
