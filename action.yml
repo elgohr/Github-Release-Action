@@ -12,6 +12,9 @@ inputs:
   workdir:
     description: "Directory of the repository that the should create the release"
     required: false
+  tag:
+    description: "The tag of the release to publish"
+    required: false
 
 runs:
   using: 'composite'
