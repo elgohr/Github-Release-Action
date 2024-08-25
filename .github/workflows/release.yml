@@ -26,7 +26,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         title: ${{ github.sha }}
-        tag: ${{ github.sha }}
+        tag: ${{ github.event.repository.updated_at }}
 
   release:
     runs-on: ubuntu-latest
