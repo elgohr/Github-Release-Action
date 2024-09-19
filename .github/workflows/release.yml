@@ -15,13 +15,13 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Create a Release
-      uses: elgohr/Github-Release-Action@main
+      uses: rasheedja/Github-Release-Action@main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         title: ${{ github.sha }}
     - name: Create a tagged Release
-      uses: elgohr/Github-Release-Action@main
+      uses: rasheedja/Github-Release-Action@main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
@@ -40,5 +40,5 @@ jobs:
         run: |
           git config --global user.email "no_reply@gohr.digital"
           git config --global user.name "Release Bot"
-          git tag -fa v5 -m "Update v5 tag"
-          git push origin v5 --force
+          git tag -fa v1 -m "Update v1 tag"
+          git push origin v1 --force
