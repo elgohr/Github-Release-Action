@@ -38,7 +38,7 @@ jobs:
           token: ${{ secrets.RELEASE_TOKEN }} # for pushing to protected branch
       - name: Publish new version
         run: |
-          git config --global user.email "no_reply@gohr.digital"
-          git config --global user.name "Release Bot"
           git tag -fa v1 -m "Update v1 tag"
           git push origin v1 --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
