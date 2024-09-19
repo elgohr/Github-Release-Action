@@ -10,4 +10,4 @@ jobs:
         if: github.actor != 'dependabot[bot]'
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          assignees: elgohr
+          assignees: rasheedja
