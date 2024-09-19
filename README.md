@@ -4,6 +4,9 @@
 
 Creates a plain Github release, without attaching assets or source code.
 
+If the release body contains too many characters, the body is converted to a
+markdown file and attached to the release.
+
 ## Usage
 
 ```yaml
