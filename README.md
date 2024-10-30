@@ -57,11 +57,7 @@ to the concrete job creating the release. For more details see the [documentatio
 
 ### Use with GitHub Enterprise
 
-To publish your release to self-hosted GitHub Enterprise, include the following environment variables:
-
-GH_ENTERPRISE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-GH_HOST: yourgithub.company.com
-
+To publish your release to self-hosted GitHub Enterprise, include `GH_ENTERPRISE_TOKEN` and `GH_HOST` as environment variables.  
 For example:
 
 ```yaml
