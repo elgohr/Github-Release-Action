@@ -54,3 +54,20 @@ permissions:
 ```
 
 to the concrete job creating the release. For more details see the [documentation on token permissions.](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token)
+
+### Use with GitHub Enterprise
+
+To publish your release to self-hosted GitHub Enterprise, include `GH_ENTERPRISE_TOKEN` and `GH_HOST` as environment variables.  
+For example:
+
+```yaml
+      - name: Create Release
+        if: ${{ github.event.inputs.create_release }}
+        uses: elgohr/Github-Release-Action@v5
+        env:
+          GH_ENTERPRISE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_HOST: yourgithub.company.com
+        with:
+          title: "New release"
+          tag: "v1.0.1"
+```
