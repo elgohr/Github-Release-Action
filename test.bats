@@ -16,6 +16,7 @@ setup(){
 teardown() {
     unset INPUT_WORKDIR
     unset INPUT_TAG
+    unset INPUT_PRERELEASE
 }
 
 @test "it creates a release" {
@@ -35,6 +36,24 @@ teardown() {
 @test "it creates a release in a working directory" {
     export INPUT_WORKDIR="WORKDIR"
     export INPUT_TAG="TAG"
+
+    run /entrypoint.sh
+
+    expectMockCalledIs "/usr/local/mock/gh release create ${INPUT_TAG} -t TITLE --generate-notes"
+}
+
+@test "it creates a prerelease" {
+    export INPUT_TAG="TAG"
+    export INPUT_PRERELEASE="true"
+
+    run /entrypoint.sh
+
+    expectMockCalledIs "/usr/local/mock/gh release create ${INPUT_TAG} -t TITLE --generate-notes --prerelease"
+}
+
+@test "it doesn't create a prerelease on false" {
+    export INPUT_TAG="TAG"
+    export INPUT_PRERELEASE="false"
 
     run /entrypoint.sh
 

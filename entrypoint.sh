@@ -1,11 +1,28 @@
 #!/usr/bin/env sh
 
-if [ ! -z "${INPUT_WORKDIR}" ]; then
-    cd "${INPUT_WORKDIR}"
-fi
+main() {
+    if uses "${INPUT_WORKDIR}"; then
+        cd "${INPUT_WORKDIR}"
+    fi
 
-if [ -z "${INPUT_TAG}" ]; then
-    INPUT_TAG="release-$(date +%Y%m%d%H%M%S)"
-fi
+    if ! uses "${INPUT_TAG}"; then
+        INPUT_TAG="release-$(date +%Y%m%d%H%M%S)"
+    fi
 
-gh release create $INPUT_TAG -t "${INPUT_TITLE}" --generate-notes
+    OPTIONS=""
+    if usesBoolean "${INPUT_PRERELEASE}"; then
+        OPTIONS="${OPTIONS} --prerelease"
+    fi
+
+    gh release create $INPUT_TAG -t "${INPUT_TITLE}" --generate-notes"${OPTIONS}"
+}
+
+uses() {
+  [ ! -z "${1}" ]
+}
+
+usesBoolean() {
+    [ ! -z "${1}" ] && [ "${1}" = "true" ]
+}
+
+main

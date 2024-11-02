@@ -23,7 +23,6 @@ jobs:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         title: MyReleaseMessage
-        tag: MyTag
 ```
 
 ## Mandatory Arguments
@@ -34,10 +33,31 @@ jobs:
 ## Optional Arguments
 
 ### workdir
-`workdir` can be used to specify a directory that contains the repository to be published. 
+`workdir` can be used to specify a directory that contains the repository to be published.  
+
+```yaml
+with:
+  title: MyReleaseMessage
+  workdir: myDirectoryName
+```
 
 ### tag
-`tag` can be used to set the tag of the release
+`tag` can be used to set the tag of the release.  
+
+```yaml
+with:
+  title: MyReleaseMessage
+  tag: MyTag
+```
+
+### prerelease
+`prerelease` is used to publish a prerelease.  
+
+```yaml
+with:
+  title: MyReleaseMessage
+  prerelease: true
+```
 
 ## Notes
 
@@ -55,7 +75,7 @@ permissions:
 
 to the concrete job creating the release. For more details see the [documentation on token permissions.](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token)
 
-### Use with GitHub Enterprise
+### GitHub Enterprise
 
 To publish your release to self-hosted GitHub Enterprise, include `GH_ENTERPRISE_TOKEN` and `GH_HOST` as environment variables.  
 For example:
