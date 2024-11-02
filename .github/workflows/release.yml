@@ -7,7 +7,7 @@ on:
       - '*'
 
 jobs:
-  test:
+  unit-test:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -16,6 +16,7 @@ jobs:
     - run: make test
   integration-test:
     runs-on: ubuntu-latest
+    needs: unit-test
     permissions:
       contents: write
       packages: write
@@ -36,8 +37,7 @@ jobs:
         tag: ${{ github.run_id }}
   release:
     runs-on: ubuntu-latest
-    needs:
-      - integration-test
+    needs: integration-test
     steps:
       - uses: actions/checkout@v4
         with:
