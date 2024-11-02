@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 if [ ! -z "${INPUT_WORKDIR}" ]; then
     cd "${INPUT_WORKDIR}"

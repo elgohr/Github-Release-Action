@@ -7,6 +7,13 @@ on:
       - '*'
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+    - uses: actions/checkout@v4
+    - run: make test
   integration-test:
     runs-on: ubuntu-latest
     permissions:
@@ -27,7 +34,6 @@ jobs:
       with:
         title: ${{ github.sha }}
         tag: ${{ github.run_id }}
-
   release:
     runs-on: ubuntu-latest
     needs:
