@@ -28,13 +28,14 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         title: ${{ github.sha }}
-    - name: Create a tagged Release
+    - name: Create a tagged Pre-Release
       uses: elgohr/Github-Release-Action@main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         title: ${{ github.sha }}
         tag: ${{ github.run_id }}
+        prerelease: true      
   release:
     runs-on: ubuntu-latest
     needs: integration-test
