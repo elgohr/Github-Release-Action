@@ -1,4 +1,4 @@
-FROM ubuntu:24.04@sha256:35b7fc72eb7c652dc1f4e5bfbdb9cdb308c3a6b1b96abc61317b931007b9aac8 as testEnv
+FROM ubuntu:24.04@sha256:80dd3c3b9c6cecb9f1667e9290b3bc61b78c2678c02cbdae5f0fea92cc6734ab as testEnv
 RUN apt-get update && apt-get install -y coreutils bats
 
 ADD mock.sh /usr/local/mock/gh
