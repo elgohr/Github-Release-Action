@@ -14,7 +14,15 @@ main() {
         OPTIONS="${OPTIONS} --prerelease"
     fi
 
-    gh release create $INPUT_TAG -t "${INPUT_TITLE}" $OPTIONS
+    if usesBoolean "${INPUT_UPLOAD_ASSETS}"; then
+        for file in *; do
+            if [ -f "$file" ]; then
+                gh release create $INPUT_TAG "$file#$INPUT_TAG" -t "${INPUT_TITLE}" $OPTIONS
+            fi
+        done
+    else
+        gh release create $INPUT_TAG -t "${INPUT_TITLE}" $OPTIONS
+    fi
 }
 
 uses() {

@@ -18,10 +18,13 @@ inputs:
   prerelease:
     description: "Publishes a prerelease"
     required: false
+  upload-assets:
+    description: "Uploads assets to the release. The assets must be in the same directory as the action."
+    required: false
 
 runs:
   using: 'composite'
-  steps:      
+  steps:
     - run: $GITHUB_ACTION_PATH/entrypoint.sh
       shell: bash
       env:
@@ -29,3 +32,4 @@ runs:
         INPUT_WORKDIR: ${{ inputs.workdir }}
         INPUT_TAG: ${{ inputs.tag }}
         INPUT_PRERELEASE: ${{ inputs.prerelease }}
+        INPUT_UPLOAD_ASSETS: ${{ inputs.upload-assets }}
